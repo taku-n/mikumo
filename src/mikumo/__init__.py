@@ -1,6 +1,7 @@
 MY_CONSTANT = 42
 
 from . import id
+from . import dns
 
 
 def hello():
