@@ -2,15 +2,6 @@ import requests
 
 from . import id
 
-def get_token_and_endpoint(access):
-    token = access['access']['token']['id']
-
-    for service in access['access']['serviceCatalog']:
-        if service['type'] == 'dns':
-            endpoint = service['endpoints'][0]['publicURL']
-
-    return token, endpoint
-
 def ver(auth):
     endpoint = auth['dns']['endpoint']
 
@@ -20,6 +11,7 @@ def ver(auth):
     return res.status_code, res.json()
 
 def list_domain(access):
+    print('fuga')
     token = access['access']['token']['id']
     for service in access['access']['serviceCatalog']:
         if service['type'] == 'dns':
@@ -34,7 +26,8 @@ def list_domain(access):
     print(res.json())
 
 def list_record(access, domain_id):
-    token, endpoint = get_token_and_endpoint(access)
+    print('hoge')
+    token, endpoint = id.get_token_and_endpoint(access, 'dns')
 
     header = {'X-Auth-Token': token}
     res = requests.get(endpoint + '/v1/domains/' + domain_id + '/records', headers = header)
