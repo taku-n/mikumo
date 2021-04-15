@@ -26,6 +26,15 @@ create_record(access, '12345678-1234-1234-1234-123456789abc', 'www', 'A', '192.1
 
 ------
 
+### create_record_by_domain_name 
+
+```python
+def create_record_by_domain_name(access, domain_name, name, type, data, priority)
+```
+
+
+------
+
 ### delete_domain 
 
 ```python
@@ -48,6 +57,24 @@ https://www.conoha.jp/docs/paas-dns-delete-a-record.php
 
 ------
 
+### delete_record_by_domain_name 
+
+```python
+def delete_record_by_domain_name(access, domain_name, record_id)
+```
+
+
+------
+
+### delete_record_by_domain_name_and_name 
+
+```python
+def delete_record_by_domain_name_and_name(access, domain_name, name, type)
+```
+
+
+------
+
 ### export_zone 
 
 ```python
@@ -59,6 +86,15 @@ https://www.conoha.jp/docs/paas-dns-export-zone.php
 
 ------
 
+### get_domain_id 
+
+```python
+def get_domain_id(access, domain_name)
+```
+
+
+------
+
 ### get_domain_info 
 
 ```python
@@ -67,6 +103,24 @@ def get_domain_info(access, domain_id)
 
 ドメイン情報表示  
 https://www.conoha.jp/docs/paas-dns-get-a-domain.php
+
+------
+
+### get_record_id 
+
+```python
+def get_record_id(access, domain_id, name, type)
+```
+
+
+------
+
+### get_record_id_by_domain_name 
+
+```python
+def get_record_id_by_domain_name(access, domain_name, name, type)
+```
+
 
 ------
 
@@ -133,6 +187,15 @@ def list_record(access, domain_id)
 
 レコード一覧取得  
 https://www.conoha.jp/docs/paas-dns-list-records-in-a-domain.php
+
+------
+
+### list_record_by_domain_name 
+
+```python
+def list_record_by_domain_name(access, domain_name)
+```
+
 
 ------
 

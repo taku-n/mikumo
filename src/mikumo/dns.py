@@ -203,3 +203,69 @@ def export_zone(access, domain_id):
     res = requests.get(endpoint + '/v2/zones/' + domain_id, headers = header)
 
     return res.status_code, res.text
+
+def get_domain_id(access, domain_name):
+    code, data = list_domain(access)
+    domains = data['domains']
+
+    for domain in domains:
+        if domain['name'] == domain_name + '.':
+            id = domain['id']
+            break
+
+    return True, id
+
+def get_record_id(access, domain_id, name, type):
+    code, domain_info = get_domain_info(access, domain_id)
+    domain_name = domain_info['name']
+    code, data = list_record(access, domain_id)
+    records = data['records']
+    if name == '':
+        fqdn = domain_name
+    elif name == '@':
+        fqdn = domain_name
+    else:
+        fqdn = name + '.' + domain_name
+
+    for record in records:
+        if record['name'] == fqdn:
+            if record['type'] == type:
+                id = record['id']
+                break
+
+    return True, id
+
+def get_record_id_by_domain_name(access, domain_name, name, type):
+    bool, domain_id = get_domain_id(access, domain_name)
+    bool, id = get_record_id(access, domain_id, name, type)
+
+    return bool, id
+
+def list_record_by_domain_name(access, domain_name):
+    bool, domain_id = get_domain_id(access, domain_name)
+
+    code, data = list_record(access, domain_id)
+
+    return code, data
+
+def create_record_by_domain_name(access, domain_name, name, type, data, priority):
+    bool, domain_id = get_domain_id(access, domain_name)
+
+    code, ret_data = create_record(access, domain_id, name, type, data, priority)
+
+    return code, ret_data
+
+def delete_record_by_domain_name(access, domain_name, record_id):
+    bool, domain_id = get_domain_id(access, domain_name)
+
+    code, data = delete_record(access, domain_id, record_id)
+
+    return code, data
+
+def delete_record_by_domain_name_and_name(access, domain_name, name, type):
+    bool, domain_id = get_domain_id(access, domain_name)
+    bool, record_id = get_record_id(access, domain_id, name, type)
+
+    code, data = delete_record(access, domain_id, record_id)
+
+    return code, data
