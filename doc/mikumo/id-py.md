@@ -29,7 +29,7 @@ https://www.conoha.jp/docs/identity-get_version_detail.php
 def get_version_list(access)
 ```
 
-バージョン情報取得
+バージョン情報取得  
 https://www.conoha.jp/docs/identity-get_version_list.php
 
 ------

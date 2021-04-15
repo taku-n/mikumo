@@ -5,7 +5,7 @@ import requests
 
 def get_version_list(access):
     """
-    バージョン情報取得
+    バージョン情報取得  
     https://www.conoha.jp/docs/identity-get_version_list.php
     """
     endpoint = access['id-endpoint']
