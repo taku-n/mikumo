@@ -1,10 +1,5 @@
-MY_CONSTANT = 42
+from . import util
 
 from . import id
+from . import compute
 from . import dns
-
-
-def hello():
-    print('hello, world')
-
-__all__ = ['identity']

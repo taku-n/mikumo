@@ -1,6 +1,8 @@
+# DNS API v1.0
+
 import requests
 
-from . import id
+from . import util
 
 def ver(auth):
     endpoint = auth['dns']['endpoint']

@@ -1,13 +1,17 @@
+# Compute API v2
+
 import requests
 
-username = 'hoge'
-password = 'fuga'
-tenant_id = '0'
-#token = '0'
-token = '0'
+from . import util
 
-header = {'X-Auth-Token': token, 'tenant_id': tenant_id}
-res = requests.get('https://compute.tyo2.conoha.io/v2/0/servers',
-        headers = header)
-print(res.status_code)
-print(res.json())
+def get_vms_list(access):
+    """
+    VM 一覧取得  
+    https://www.conoha.jp/docs/compute-get_vms_list.php
+    """
+    token, endpoint = util.get_token_and_endpoint(access, 'compute')
+
+    header = {'X-Auth-Token': token}
+    res = requests.get(endpoint + '/servers', headers = header)
+ 
+    return res.status_code, res.json()
