@@ -3,10 +3,10 @@
 
 ## Functions
 
-### get_vms_list 
+### list_vm 
 
 ```python
-def get_vms_list(access)
+def list_vm(access)
 ```
 
 VM 一覧取得  

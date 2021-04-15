@@ -4,7 +4,7 @@ import requests
 
 from . import util
 
-def get_vms_list(access):
+def list_vm(access):
     """
     VM 一覧取得  
     https://www.conoha.jp/docs/compute-get_vms_list.php

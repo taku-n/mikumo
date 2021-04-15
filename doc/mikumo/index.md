@@ -10,12 +10,3 @@
 [mikumo.id](id-py)
 
 [mikumo.util](util-py)
-
-
-## Functions
-
-### hello 
-
-```python
-def hello()
-```

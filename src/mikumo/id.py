@@ -3,7 +3,7 @@
 import json
 import requests
 
-def get_version_list(access):
+def get_version(access):
     """
     バージョン情報取得  
     https://www.conoha.jp/docs/identity-get_version_list.php
@@ -14,7 +14,7 @@ def get_version_list(access):
 
     return res.status_code, res.json()
 
-def get_version_detail(access):
+def get_version_in_detail(access):
     """
     バージョン情報詳細取得  
     https://www.conoha.jp/docs/identity-get_version_detail.php
@@ -25,7 +25,7 @@ def get_version_detail(access):
 
     return res.status_code, res.json()
 
-def post_tokens(credentials):
+def get_access(credentials):
     """
     トークン発行  
     https://www.conoha.jp/docs/identity-post_tokens.php
